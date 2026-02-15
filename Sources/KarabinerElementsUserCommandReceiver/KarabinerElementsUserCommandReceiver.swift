@@ -32,6 +32,10 @@ public actor KEUserCommandReceiver {
   private var fd: Int32 = -1
   private var task: Task<Void, Never>?
 
+  public static func defaultSocketPath() -> String {
+    return "/Library/Application Support/org.pqrs/tmp/user/\(geteuid())/user_command_receiver.sock"
+  }
+
   public init(
     path: String,
     maxDatagramBytes: Int = 4096,

@@ -10,8 +10,7 @@ final class ServerViewModel: ObservableObject {
 
   private var server: KEUserCommandReceiver?
   init() {
-    let home = FileManager.default.homeDirectoryForCurrentUser.path
-    socketPath = "\(home)/.local/share/karabiner/tmp/karabiner_user_command_receiver.sock"
+    socketPath = KEUserCommandReceiver.defaultSocketPath()
   }
 
   deinit {
