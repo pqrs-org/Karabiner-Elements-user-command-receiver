@@ -1,0 +1,147 @@
+{
+  "title": "seq pilot 5 (send_user_command template)",
+  "rules": [
+    {
+      "description": "Set seq transport mode = user_command (1) with right_command+right_option+f19",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f19",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "seq_transport_mode",
+                "value": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Pilot 5 macros routed via send_user_command (template: adjust payload wrapper if upstream format differs)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f13",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "send_user_command": {
+                "json": { "v": 1, "type": "run", "name": "open Safari new tab" }
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f14",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "send_user_command": {
+                "json": { "v": 1, "type": "run", "name": "open Comet new tab" }
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f15",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "send_user_command": {
+                "json": { "v": 1, "type": "run", "name": "New Linear task" }
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f16",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "send_user_command": {
+                "json": { "v": 1, "type": "run", "name": "arc: localhost:3000" }
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f17",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 1
+            }
+          ],
+          "to": [
+            {
+              "send_user_command": {
+                "json": { "v": 1, "type": "run", "name": "open: Spotify (or search)" }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

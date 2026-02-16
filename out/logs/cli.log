@@ -1,0 +1,50 @@
+1771251785304380 [info] trace init: seq
+1771251785356359 [info] seqd start ax=1
+1771251785360298 [info] loaded macros overlay: /Users/nikiv/code/seq/seq.macros.local.yaml
+1771251785370711 [info] action-pack receiver config loaded
+1771251785371109 [info] action-pack pubkeys loaded: /Users/nikiv/Library/Application Support/seq/action_pack_pubkeys
+1771251785371523 [info] action-pack policy loaded: /Users/nikiv/Library/Application Support/seq/action_pack.policy
+1771251785371948 [info] action-pack listening 127.0.0.1:5011
+1771251785372012 [info] capture: requesting shareable content
+1771251785372545 [info] seqd listening
+1771251785372646 [info] seqd dgram listening on /tmp/seqd.sock.dgram
+1771251785411222 [info] capture: found 1 display(s)
+1771251785445104 [info] capture: starting stream
+1771251785529622 [info] capture: stream started successfully
+1771251802510376 [info] trace init: seq
+1771251802510487 [error] connect failed
+1771251813772675 [info] trace init: seq
+1771251813824036 [info] seqd start ax=1
+1771251813824347 [info] loaded macros overlay: /Users/nikiv/code/seq/seq.macros.local.yaml
+1771251813834673 [info] action-pack receiver config loaded
+1771251813834767 [info] action-pack pubkeys loaded: /Users/nikiv/Library/Application Support/seq/action_pack_pubkeys
+1771251813834817 [info] action-pack policy loaded: /Users/nikiv/Library/Application Support/seq/action_pack.policy
+1771251813834894 [info] action-pack listening 127.0.0.1:5011
+1771251813835317 [info] capture: requesting shareable content
+1771251813835939 [info] seqd listening
+1771251813836058 [info] seqd dgram listening on /tmp/seqd.sock.dgram
+1771251813873128 [info] capture: found 1 display(s)
+1771251813905853 [info] capture: starting stream
+1771251813940631 [info] capture: stream started successfully
+1771251847802780 [info] trace init: seq
+1771251864381828 [info] trace init: seq
+1771251919877929 [error] capture: stream stopped: Failed to find any displays or windows to capture
+1771252326537166 [info] trace init: seq
+1771252543179353 [info] trace init: seq
+1771252543249488 [info] seqd start ax=1
+1771252543249888 [info] loaded macros overlay: /Users/nikiv/code/seq/seq.macros.local.yaml
+1771252543262717 [info] action-pack receiver config loaded
+1771252543262832 [info] action-pack pubkeys loaded: /Users/nikiv/Library/Application Support/seq/action_pack_pubkeys
+1771252543262893 [info] action-pack policy loaded: /Users/nikiv/Library/Application Support/seq/action_pack.policy
+1771252543262976 [info] action-pack listening 127.0.0.1:5011
+1771252543264258 [info] capture: requesting shareable content
+1771252543264886 [info] seqd listening
+1771252543265014 [info] seqd dgram listening on /tmp/seqd.sock.dgram
+1771252543303524 [info] capture: found 1 display(s)
+1771252543338432 [info] capture: starting stream
+1771252543375326 [info] capture: stream started successfully
+1771252543449100 [info] trace init: seq
+1771252586820671 [info] trace init: seq
+1771252586820751 [error] connect failed
+1771252696001020 [info] trace init: seq
+1771252696001113 [error] connect failed

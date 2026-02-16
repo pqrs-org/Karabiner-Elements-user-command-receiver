@@ -1,0 +1,152 @@
+{
+  "title": "seq pilot 5 (legacy socket_command)",
+  "rules": [
+    {
+      "description": "Set seq transport mode = legacy (0) with right_command+right_option+f18",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f18",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "seq_transport_mode",
+                "value": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Pilot 5 macros routed to seqd via socket_command (active when seq_transport_mode=0)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f13",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "socket_command": {
+                "endpoint": "/tmp/seqd.sock",
+                "command": "RUN open Safari new tab"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f14",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "socket_command": {
+                "endpoint": "/tmp/seqd.sock",
+                "command": "RUN open Comet new tab"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f15",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "socket_command": {
+                "endpoint": "/tmp/seqd.sock",
+                "command": "RUN New Linear task"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f16",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "socket_command": {
+                "endpoint": "/tmp/seqd.sock",
+                "command": "RUN arc: localhost:3000"
+              }
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f17",
+            "modifiers": {
+              "mandatory": ["right_command", "right_option"]
+            }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "seq_transport_mode",
+              "value": 0
+            }
+          ],
+          "to": [
+            {
+              "socket_command": {
+                "endpoint": "/tmp/seqd.sock",
+                "command": "RUN open: Spotify (or search)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

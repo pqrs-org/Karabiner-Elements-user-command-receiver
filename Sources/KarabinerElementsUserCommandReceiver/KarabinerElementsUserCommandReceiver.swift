@@ -68,7 +68,7 @@ public actor KEUserCommandReceiver {
     let capturedMaxDatagramBytes = maxDatagramBytes
     let handlers = Handlers(onJSON: onJSON, onError: onError)
 
-    task = Task.detached { [weak self] in
+    task = Task.detached(priority: .high) { [weak self] in
       Self.receiveLoop(
         fd: capturedFD,
         maxDatagramBytes: capturedMaxDatagramBytes,
@@ -161,6 +161,8 @@ private func unlinkIfExists(_ path: String) {
 }
 
 private func bindUnixDatagramSocket(path: String) throws -> Int32 {
+  try ensureParentDirectoryExists(path)
+
   let (fd, err1) = withErrno { socket(AF_UNIX, SOCK_DGRAM, 0) }
   if fd < 0 { throw KEUserCommandReceiverError.sys("socket(dgram) failed errno=\(err1)") }
 
@@ -178,4 +180,22 @@ private func bindUnixDatagramSocket(path: String) throws -> Int32 {
   }
 
   return fd
+}
+
+private func ensureParentDirectoryExists(_ path: String) throws {
+  let directory = (path as NSString).deletingLastPathComponent
+  guard !directory.isEmpty else {
+    throw KEUserCommandReceiverError.invalidPath(path)
+  }
+
+  do {
+    try FileManager.default.createDirectory(
+      atPath: directory,
+      withIntermediateDirectories: true
+    )
+  } catch {
+    throw KEUserCommandReceiverError.sys(
+      "createDirectory failed path=\(directory) error=\(error.localizedDescription)"
+    )
+  }
 }
