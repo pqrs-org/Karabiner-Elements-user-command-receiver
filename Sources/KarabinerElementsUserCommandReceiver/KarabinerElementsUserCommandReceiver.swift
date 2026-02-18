@@ -38,8 +38,8 @@ public actor KEUserCommandReceiver {
 
   public init(
     path: String,
-    maxDatagramBytes: Int = 4096,
-    recvBufferBytes: Int = 65536,
+    maxDatagramBytes: Int = 32 * 1024,
+    recvBufferBytes: Int = 128 * 1024,
     onJSON: @escaping JSONHandler,
     onError: ErrorHandler? = nil
   ) {
